@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- hibernate的对象关系映射文件 -->
+<hibernate-mapping>
+	<!-- 把实体类映射到表 -->
+	<class name="com.wgw.entity.student.Course" table="course">
+		<!-- 把实体类的OID映射表的主键 -->
+		<id name="id" column="id" type="int">
+			<generator class="native"/>
+		</id>
+		
+		<!-- 把普通属性映射到表的字段 -->
+		<property name="courseName" column="course_name"></property>
+		<property name="creditHours" column="credit_hours"></property>
+
+		<bag name="students" table="student_course" inverse="true" cascade="save-update,delete">
+			<key column="c_id" />
+			<many-to-many class="com.wgw.entity.student.Student" column="s_id"/>
+		</bag>	
+	</class>
+
+</hibernate-mapping>
