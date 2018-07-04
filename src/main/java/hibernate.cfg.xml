@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- 配置连接池 -->
+        <property name="hibernate.connection.provider_class">org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider</property>
+        <!-- c3p0连接池中保留的最小连接数 -->
+        <property name="hibernate.c3p0.min_size">5</property>
+        <!-- 连接池中保留的最大连接数。Default: 15 -->
+        <property name="hibernate.c3p0.max_size">30</property>
+        <!-- 当连接池用完时客户端调用getConnection()后等待获取新连接的时间，超时后将抛出SQLException,如设为0则无限期等待。单位毫秒 -->
+        <property name="hibernate.c3p0.timeout">1800</property>
+        <!-- c3p0全局的PreparedStatements缓存的大小。如果maxStatements与maxStatementsPerConnection均为0，则缓存不生效，只要有一个不为0，则语句的缓存就能生效。如果默认值:
+            0 -->
+        <property name="hibernate.c3p0.max_statements">50</property>
+
+        <!-- 其它的一些辅助配置 hibernate3.2好像是用slf4j记录数据 不过得转换成LOG4J记录 然后 去log4j的properties文件改
+            让hibernate打印sql -->
+        <property name="hibernate.show_sql">true</property>
+        <!-- validate 加载hibernate时，验证创建数据库表结构 create 每次加载hibernate，重新创建数据库表结构，这就是导致数据库表数据丢失的原因。
+            create-drop 加载hibernate时创建，退出是删除表结构 update 加载hibernate自动更新数据库结构 -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- 注册映射文件 -->
+      <!--  <mapping resource="com/wgw/entity/user/Employee.hbm.xml"/>
+        <mapping resource="com/wgw/entity/user/Account.hbm.xml"/>
+        <mapping resource="com/wgw/entity/user/Category.hbm.xml"/>
+        <mapping resource="com/wgw/entity/user/IDCard.hbm.xml"/>
+        <mapping resource="com/wgw/entity/user/Citizen.hbm.xml"/>-->
+
+        <mapping resource="com/wgw/entity/student/Course.hbm.xml"/>
+        <mapping resource="com/wgw/entity/student/Student.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>
