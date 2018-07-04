@@ -18,7 +18,7 @@ public class Course {
         this.id = id;
     }
 
-    @ManyToMany(mappedBy = "courses")
+    //@ManyToMany(mappedBy = "courses")
     public List<Student> getStudents() {
         return students;
     }
