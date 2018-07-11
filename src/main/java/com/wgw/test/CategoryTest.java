@@ -16,7 +16,9 @@ public class CategoryTest {
 
     @Test
     public void Category() {
-        saveCategory("delete");
+
+        //saveCategory("delete");
+
     }
 
     public void saveCategory(String type) {

@@ -32,8 +32,11 @@
         <mapping resource="com/wgw/entity/user/IDCard.hbm.xml"/>
         <mapping resource="com/wgw/entity/user/Citizen.hbm.xml"/>-->
 
-        <mapping resource="com/wgw/entity/student/Course.hbm.xml"/>
-        <mapping resource="com/wgw/entity/student/Student.hbm.xml"/>
+        <!--<mapping resource="com/wgw/entity/student/Course.hbm.xml"/>
+        <mapping resource="com/wgw/entity/student/Student.hbm.xml"/>-->
+
+        <mapping class="com.wgw.entity.annotation.Department"/>
+        <mapping class="com.wgw.entity.annotation.Employer"/>
 
     </session-factory>
 </hibernate-configuration>
